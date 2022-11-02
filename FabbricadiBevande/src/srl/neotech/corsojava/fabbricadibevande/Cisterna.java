@@ -6,6 +6,7 @@ public class Cisterna {
 		private Integer quantita;
 		private Integer evapPerDay;
 		private Integer livelloGas;
+	
 		
 			
 		public Cisterna(String tipologia ) {
@@ -53,15 +54,19 @@ public class Cisterna {
 				System.out.println("----------");
 			} else if (sogliaGas<livelloGas-evaporazione) {
 				int rimanenzaGas = livelloGas-evaporazione;				
-				System.out.println("Livello di gas rimanente: "+rimanenzaGas+"è sopra la soglia consentita "+sogliaGas+" litri vendibili: " + litri);
+				System.out.println("Livello di gas rimanente: "+rimanenzaGas+"è sopra la soglia consentita di:  "+sogliaGas+" - litri vendibili: " + litri);
 				System.out.println("----------");
 				}else {
-					System.out.println("Livello gas sotto la soglia consentita, litri persi "+litri+"<br>");
+					System.out.println("Livello gas sotto la soglia consentita, litri persi "+litri);
 					System.out.println("----------");
 			}
+			
+			
 						
 			
 		}
+		
+		
 
 
 		public String getTipologia() {

@@ -8,10 +8,9 @@ public class Startup {
 		// TODO Auto-generated method stub
 		
 		
-			Cantina cantina = new Cantina();
+		Cantina cantina = new Cantina();
 		
-		
-				
+						
 		for(int i = 0; i<100; i++) {
 			Random r = new Random ();
 			int randomNumber = r.nextInt(3);
@@ -46,10 +45,10 @@ public class Startup {
 				System.out.println("Ho inserito una cisterna di "+c3.getTipologia()+" di quantita "+c3.getQuantita()+" - livello gas: "+c3.getLivelloGas()+" - evaporazione:"+c3.getEvapPerDay());								
 				c3.evaporazioneGiornaliera(c3.getEvapPerDay(), c3.getLivelloGas(), c3.getQuantita());
 				
-			}else  System.out.println("E' uscito il numero "+randomNumber);
+			}
 		} 
-		
-		
+	
+			
 		
 	}
 
