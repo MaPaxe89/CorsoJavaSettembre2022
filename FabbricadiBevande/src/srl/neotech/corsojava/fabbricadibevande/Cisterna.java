@@ -6,9 +6,18 @@ public class Cisterna {
 		private Integer quantita;
 		private Integer evapPerDay;
 		private Integer livelloGas;
-	
+		private Integer litriPersi;
+		
+		private final Integer soglia = 12;
+		
+		
 		
 			
+		public Integer getSoglia() {
+			return soglia;
+		}
+
+
 		public Cisterna(String tipologia ) {
 			this.tipologia=tipologia;
 		}
@@ -31,7 +40,7 @@ public class Cisterna {
 			return evapPerDay;
 		}
 		public void setEvapPerDay() {
-			double doubleRandomNumber2 = Math.random() * 100;
+			double doubleRandomNumber2 = Math.random() * 1;
 			int randomNumber2 = (int)doubleRandomNumber2;
 			this.evapPerDay = randomNumber2;
 		}
@@ -48,13 +57,13 @@ public class Cisterna {
 		}
 		
 		public void evaporazioneGiornaliera(int evaporazione, int livelloGas, int litri) {
-			int sogliaGas= 10;
-			if (livelloGas < sogliaGas) {
+			
+			if (livelloGas < soglia) {
 				System.out.println("Benvanda non vendibile, livello gas troppo basso, litri persi: "+litri);
 				System.out.println("----------");
-			} else if (sogliaGas<livelloGas-evaporazione) {
+			} else if (soglia<livelloGas-evaporazione) {
 				int rimanenzaGas = livelloGas-evaporazione;				
-				System.out.println("Livello di gas rimanente: "+rimanenzaGas+"è sopra la soglia consentita di:  "+sogliaGas+" - litri vendibili: " + litri);
+				System.out.println("Livello di gas rimanente: "+rimanenzaGas+"è sopra la soglia consentita di:  "+soglia+" - litri vendibili: " + litri);
 				System.out.println("----------");
 				}else {
 					System.out.println("Livello gas sotto la soglia consentita, litri persi "+litri);
@@ -66,7 +75,15 @@ public class Cisterna {
 			
 		}
 		
-		
+		public Integer litriPersiSettimana(int evaporazione, int livelloGas, int litri) {
+			int evaporazioneSettimanale = evaporazione * 7;
+			Integer gasRimasto = evaporazioneSettimanale-livelloGas;
+			
+			return gasRimasto;
+			
+			
+			
+		}
 
 
 		public String getTipologia() {

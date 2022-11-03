@@ -32,7 +32,9 @@ public class Startup {
 				c2.setQuantita();
 				c2.setEvapPerDay();
 				c2.setLivelloGas();
+				
 				cantina.listaCisterne.add(c2);
+				
 				System.out.println("Ho inserito una cisterna di "+c2.getTipologia()+" di quantita "+c2.getQuantita()+" - livello gas: "+c2.getLivelloGas()+" - evaporazione:"+c2.getEvapPerDay());								
 				c2.evaporazioneGiornaliera(c2.getEvapPerDay(), c2.getLivelloGas(), c2.getQuantita());
 				
@@ -41,15 +43,27 @@ public class Startup {
 				c3.setQuantita();
 				c3.setEvapPerDay();
 				c3.setLivelloGas();
+				
 				cantina.listaCisterne.add(c3);
+				
 				System.out.println("Ho inserito una cisterna di "+c3.getTipologia()+" di quantita "+c3.getQuantita()+" - livello gas: "+c3.getLivelloGas()+" - evaporazione:"+c3.getEvapPerDay());								
 				c3.evaporazioneGiornaliera(c3.getEvapPerDay(), c3.getLivelloGas(), c3.getQuantita());
 				
 			}
 		} 
-	
 			
-		
+			
+			for (Cisterna pp : cantina.listaCisterne) {
+				
+				int evaporazioneSettimanale = pp.getEvapPerDay()*7;
+				int differenza = pp.getLivelloGas()-evaporazioneSettimanale;
+				if (differenza<pp.getSoglia()) {
+					System.out.println("Livello di gas rimanente fra 7 gg: "+differenza+" livello troppo basso per la vendita, litri persi:"+pp.getQuantita());
+				}
+				
+				}
+				
+			
 	}
 
 }
