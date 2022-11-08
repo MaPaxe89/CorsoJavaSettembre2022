@@ -6,7 +6,7 @@ public class Cisterna {
 		private Integer quantita;
 		private Integer evapPerDay;
 		private Integer livelloGas;
-		private Integer litriPersi;
+		
 		
 		private final Integer soglia = 12;
 		
@@ -40,7 +40,7 @@ public class Cisterna {
 			return evapPerDay;
 		}
 		public void setEvapPerDay() {
-			double doubleRandomNumber2 = Math.random() * 1;
+			double doubleRandomNumber2 = Math.random() * 5;
 			int randomNumber2 = (int)doubleRandomNumber2;
 			this.evapPerDay = randomNumber2;
 		}

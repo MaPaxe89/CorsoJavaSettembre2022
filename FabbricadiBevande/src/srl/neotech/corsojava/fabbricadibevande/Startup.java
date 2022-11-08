@@ -52,18 +52,65 @@ public class Startup {
 			}
 		} 
 			
+		// litri vendibili	
+		int sommaLitriVendibili = 0;
 			
 			for (Cisterna pp : cantina.listaCisterne) {
 				
-				int evaporazioneSettimanale = pp.getEvapPerDay()*7;
-				int differenza = pp.getLivelloGas()-evaporazioneSettimanale;
-				if (differenza<pp.getSoglia()) {
-					System.out.println("Livello di gas rimanente fra 7 gg: "+differenza+" livello troppo basso per la vendita, litri persi:"+pp.getQuantita());
+				if(pp.getLivelloGas()>pp.getSoglia()) {
+					sommaLitriVendibili = sommaLitriVendibili + pp.getQuantita();
+					 
 				}
 				
 				}
+				System.out.println("litri vendibili: "+sommaLitriVendibili);
 				
+		// litri persi
+		int litriPersi = 0;
+		for (Cisterna i : cantina.listaCisterne) {
 			
+			int gasRimasto = i.litriPersiSettimana(i.getEvapPerDay(), i.getLivelloGas(), i.getQuantita());
+			if (gasRimasto<i.getSoglia()) {
+				litriPersi = litriPersi + i.getQuantita();
+			}
+			
+		}
+		System.out.println("Somma litri persi: "+litriPersi);
+		
+		// giorni senza bibita vendibile
+		
+		int sommaLivelloGas = 0;
+		int sommaEvapDay = 0;
+		
+		int threshold = cantina.listaCisterne.get(1).getSoglia();
+		
+		
+		for (Cisterna k : cantina.listaCisterne) {
+			
+			sommaLivelloGas = sommaLivelloGas + k.getLivelloGas();
+					 
+			}
+		for (Cisterna q : cantina.listaCisterne) {
+			
+			sommaEvapDay = sommaEvapDay + q.getEvapPerDay();
+					 
+			}
+		
+		int day = 0;
+		System.out.println("Livello gas totale cisaterne: "+sommaLivelloGas);
+		System.out.println("Livello di Evaporazione totale cisaterne: "+sommaEvapDay);
+		
+		while( sommaLivelloGas> threshold) {
+			sommaLivelloGas = sommaLivelloGas - sommaEvapDay;
+			day++;
+			System.out.println("GIORNO: "+day+" - Rimanenza Gas: "+sommaLivelloGas);
+			
+		}
+		System.out.println("Totali giorni: "+day);
+		
+			 		
+		
+		
 	}
 
 }
