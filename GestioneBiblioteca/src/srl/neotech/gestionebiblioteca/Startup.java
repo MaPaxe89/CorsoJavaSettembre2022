@@ -12,7 +12,7 @@ public class Startup {
 		
 		
 		
-		Integer generatoreIdLibro = 0;
+		Integer generatoreIdLibro = 1;
 		for (int i = 0; i<100;i++) {
 			
 			Libro libroCreato = new Libro(generatoreIdLibro);
@@ -40,6 +40,7 @@ public class Startup {
 			
 			
 		}
+		
 		
 		Integer generatoreIdAssociato = 0;
 		for (int j = 0; j<100; j++) {
