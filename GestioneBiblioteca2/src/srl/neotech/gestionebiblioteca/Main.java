@@ -90,7 +90,12 @@ public class Main {
 			
 		}
 		
-		System.out.println(b.listaAssociati);
+		
+		// stampo lista associato con relative info
+		
+		for(int k = 0 ; k<b.listaAssociati.size(); k++) {
+			System.out.println(b.listaAssociati.get(k));
+		}
 		
 		
 		
