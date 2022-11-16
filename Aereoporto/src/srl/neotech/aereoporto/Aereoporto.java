@@ -16,17 +16,13 @@ public class Aereoporto {
 		
 		
 		Integer kmPercorsi = 0;
-		while (aereoInVolo.getDistanzaAereoporto()<=0) {
-			Integer velocita = aereoInVolo.getVelocita();
-			Integer distanza = aereoInVolo.getDistanzaAereoporto();
-			kmPercorsi = kmPercorsi + velocita;
-			Integer rimanenza = aereoInVolo.getDistanzaAereoporto()-kmPercorsi;
-			System.out.println(kmPercorsi);
+		while (kmPercorsi <= aereoInVolo.getDistanzaAereoporto()) {
 			
-		}
+			kmPercorsi = kmPercorsi + aereoInVolo.getVelocita();
 			
+			aereoInVolo.setStato(Stato.ATTERRATO);
+		}	
 		
-		aereoInVolo.setStato(Stato.ATTERRATO);
 		
 		return aereoInVolo;
 		
@@ -53,16 +49,9 @@ public class Aereoporto {
 	
 	public Passeggero checkIn (Aereo inPartenza, Passeggero passeggeroDaImbarcare ) {
 		
-		Passeggero passeggeroImbarcato = passeggeroDaImbarcare;
-		if (passeggeroImbarcato.getClassePasseggero().getExcelsior() == passeggeroImbarcato.getClassePasseggero().getExcelsior()) {
-			passeggeroImbarcato.getClassePasseggero().getExcelsior().setHasChampagne(true);
-		} else if (passeggeroImbarcato.getClassePasseggero().getBusiness() == passeggeroImbarcato.getClassePasseggero().getBusiness()) {
-			passeggeroImbarcato.getClassePasseggero().getBusiness().setHasGiornale(true);
-		} else if (passeggeroImbarcato.getClassePasseggero().getTurista() == passeggeroImbarcato.getClassePasseggero().getTurista()) {
-			passeggeroImbarcato.getClassePasseggero().getTurista().setHasAnimale(true);
-		}
 		
-		return passeggeroImbarcato;
+		
+		return passeggeroDaImbarcare;
 	}
 	
 	

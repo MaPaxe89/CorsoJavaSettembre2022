@@ -5,6 +5,8 @@ class ClassePasseggero {
 	private Excelsior excelsior;
 	private Business business;
 	private Turista turista;
+	
+	
 	public Excelsior getExcelsior() {
 		return excelsior;
 	}
