@@ -2,62 +2,94 @@ package srl.neotech.aereoporto;
 
 import java.util.ArrayList;
 
+
 public class Aereoporto {
 	
 	private Integer raggioDazione;
-	private Pista pista;
 	
 	ArrayList <Passeggero> listaPasseggeri = new ArrayList<Passeggero>();
-	ArrayList <Aereo> listaAerei = new ArrayList<Aereo>();
+	ArrayList <Passeggero> imbarcati = new ArrayList <Passeggero>();
+	ArrayList <Aereo> listaAereiPartenza = new ArrayList<Aereo>();
+	ArrayList <Aereo> listaAereiArrivo = new ArrayList <Aereo>();
+	ArrayList <Passeggero> sbarcati = new ArrayList <Passeggero>();
 	
 	
-	// atterraggio - checkout
-	public Aereo atterraggio( Aereo aereoInVolo) {
+	
+	
+	public ArrayList<Passeggero> getSbarcati() {
+		return sbarcati;
+	}
+	public void setSbarcati(ArrayList<Passeggero> sbarcati) {
+		this.sbarcati = sbarcati;
+	}
+	public ArrayList<Passeggero> getImbarcati() {
+		return imbarcati;
+	}
+	public void setImbarcati(ArrayList<Passeggero> imbarcati) {
+		this.imbarcati = imbarcati;
+	}
+	public ArrayList<Aereo> getListaAereiArrivo() {
+		return listaAereiArrivo;
+	}
+	public void setListaAereiArrivo(ArrayList<Aereo> listaAereiArrivo) {
+		this.listaAereiArrivo = listaAereiArrivo;
+	}
+	// atterraggio 
+	public Aereo atterraggio( Aereo a , int velocita , int distanza) {		
+											
+			a.setStato(Stato.ATTERRATO);
+				
+			return a;
 		
-		
-		Integer kmPercorsi = 0;
-		while (kmPercorsi <= aereoInVolo.getDistanzaAereoporto()) {
+	}
+	// checkout
+	public Passeggero checkOut(Aereo a, Passeggero passeggeroDaSbarcare) {
 			
-			kmPercorsi = kmPercorsi + aereoInVolo.getVelocita();
+		passeggeroDaSbarcare.setStatoPasseggero(StatoPasseggero.Sbarcato);
+		if(passeggeroDaSbarcare.getSesso()=='M') {
+			passeggeroDaSbarcare.setHasBagagli(true);
+		} else {
+			passeggeroDaSbarcare.setHasFiore(true);
+		}
+		this.sbarcati.add(passeggeroDaSbarcare);
+		
+		return passeggeroDaSbarcare;
+	}
+	
+	// decollo
+	
+	public Aereo decollo (Aereo decollato, Integer raggioAzione) {
+				
+		decollato.setStato(Stato.DECOLLATO);
+				
+		return decollato;
+		
+	}
+	
+	//checkin	
+	public Aereo checkin (Aereo a, ArrayList<Passeggero> listaPasseggeri2) {
+		for(Passeggero listaPasseggeriDaImbarcare : this.listaPasseggeri ) {			
 			
-			aereoInVolo.setStato(Stato.ATTERRATO);
-		}	
+			
+			if(listaPasseggeriDaImbarcare.getSesso()=='M') {
+				listaPasseggeriDaImbarcare.setHasBagagli(true);
+			} else if (listaPasseggeriDaImbarcare.getSesso()=='F'){
+				listaPasseggeriDaImbarcare.setHasFiore(true);
+			}
+			listaPasseggeriDaImbarcare.setStatoPasseggero(StatoPasseggero.Imbarcato);
+			;
+			this.imbarcati.add(listaPasseggeriDaImbarcare);
+			
+		}		
 		
 		
-		return aereoInVolo;
 		
-	}
+		
+		a.setStato(Stato.DECOLLATO);
+		return  a;
+		} 
 	
-	public Passeggero checkOut(Passeggero passeggeroDaSbarcare) {
-		
-		Passeggero passeggeroSbarcato = passeggeroDaSbarcare;
-		
-		return passeggeroSbarcato;
-	
-		
-	}
-	
-	// decollo - checkin
-	
-	public Aereo decollo (Aereo aereoATerra) {
-		
-		aereoATerra.setStato(Stato.DECOLLATO);
-		
-		return aereoATerra;
-		
-	}
-	
-	public Passeggero checkIn (Aereo inPartenza, Passeggero passeggeroDaImbarcare ) {
-		
-		
-		
-		return passeggeroDaImbarcare;
-	}
-	
-	
-	
-	
-	
+	// getter setter
 	
 	public Integer getRaggioDazione() {
 		return raggioDazione;
@@ -65,23 +97,18 @@ public class Aereoporto {
 	public void setRaggioDazione(Integer raggioDazione) {
 		this.raggioDazione = raggioDazione;
 	}
-	public Pista getPista() {
-		return pista;
-	}
-	public void setPista(Pista pista) {
-		this.pista = pista;
-	}
+	
 	public ArrayList<Passeggero> getListaPasseggeri() {
 		return listaPasseggeri;
 	}
 	public void setListaPasseggeri(ArrayList<Passeggero> listaPasseggeri) {
 		this.listaPasseggeri = listaPasseggeri;
 	}
-	public ArrayList<Aereo> getListaAerei() {
-		return listaAerei;
+	public ArrayList<Aereo> getListaAereiPartenza() {
+		return listaAereiPartenza;
 	}
-	public void setListaAerei(ArrayList<Aereo> listaAerei) {
-		this.listaAerei = listaAerei;
+	public void setListaAereiPartenza(ArrayList<Aereo> listaAerei) {
+		this.listaAereiPartenza = listaAerei;
 	}
 	
 	

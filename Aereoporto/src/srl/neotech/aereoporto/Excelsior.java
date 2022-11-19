@@ -1,7 +1,12 @@
 package srl.neotech.aereoporto;
 
-public class Excelsior extends ClassePasseggero {
+public class Excelsior extends Passeggero {
 	
+	public Excelsior(StatoPasseggero statoPasseggero) {
+		super(statoPasseggero);
+		// TODO Auto-generated constructor stub
+	}
+
 	private Boolean hasChampagne;
 
 	public Boolean getHasChampagne() {
@@ -12,10 +17,7 @@ public class Excelsior extends ClassePasseggero {
 		this.hasChampagne = hasChampagne;
 	}
 
-	public Excelsior(Boolean hasChampagne) {
-		super();
-		this.hasChampagne = hasChampagne;
-	}
+	
 
 	
 	

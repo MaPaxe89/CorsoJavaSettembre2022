@@ -1,22 +1,49 @@
 package srl.neotech.aereoporto;
 
+import java.util.Random;
+
 public class Passeggero {
 
 	private Integer idPasseggero;
-	private Character sesso;
+	private char sesso;
 	private Boolean hasFiore;
 	private Integer eta;
-	private Boolean hasBagagli;
-	private ClassePasseggero classePasseggero;
+	private Boolean hasBagagli;	
+	private StatoPasseggero statoPasseggero;
 	
 	
-	
-	
-	public ClassePasseggero getClassePasseggero() {
-		return classePasseggero;
+	public Passeggero(StatoPasseggero statoPasseggero) {
+		super();
+		this.statoPasseggero = statoPasseggero;
+		Random r = new Random();
+		//id
+		int id = r.nextInt(2500);
+		this.idPasseggero=id;
+		// eta
+		int eta = r.nextInt(15,65);
+		this.eta = eta;
+		
+		// sesso
+		int sceltaSesso = r.nextInt(2);
+		if(sceltaSesso == 1) {
+			this.setSesso('M');
+		} else if (sesso==0) {
+			this.setSesso('F');
+		}
+		
+		
+		
 	}
-	public void setClassePasseggero(ClassePasseggero classePasseggero) {
-		this.classePasseggero = classePasseggero;
+	@Override
+	public String toString() {
+		return "Passeggero [idPasseggero=" + idPasseggero + ", sesso=" + sesso + ", hasFiore=" + hasFiore + ", eta="
+				+ eta + ", hasBagagli=" + hasBagagli + ", statoPasseggero=" + statoPasseggero + "]";
+	}
+	public StatoPasseggero getStatoPasseggero() {
+		return statoPasseggero;
+	}
+	public void setStatoPasseggero(StatoPasseggero statoPasseggero) {
+		this.statoPasseggero = statoPasseggero;
 	}
 	public Integer getIdPasseggero() {
 		return idPasseggero;
@@ -25,10 +52,12 @@ public class Passeggero {
 		this.idPasseggero = idPasseggero;
 	}
 	
-	public Character getSesso() {
+	
+	
+	public char getSesso() {
 		return sesso;
 	}
-	public void setSesso(Character sesso) {
+	public void setSesso(char sesso) {
 		this.sesso = sesso;
 	}
 	public Boolean getHasFiore() {

@@ -1,6 +1,11 @@
 package srl.neotech.aereoporto;
 
-public class Business{
+public class Business extends Passeggero{
+
+		public Business(StatoPasseggero statoPasseggero) {
+		super(statoPasseggero);
+		// TODO Auto-generated constructor stub
+	}
 
 		private Boolean hasGiornale;
 
@@ -11,6 +16,8 @@ public class Business{
 		public void setHasGiornale(Boolean hasGiornale) {
 			this.hasGiornale = hasGiornale;
 		}
+		
+		
 		
 		
 		
