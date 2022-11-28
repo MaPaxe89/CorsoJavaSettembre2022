@@ -67,25 +67,12 @@ public class Aereoporto {
 	}
 	
 	//checkin	
-	public Aereo checkin (Aereo a, ArrayList<Passeggero> listaPasseggeri2) {
-		for(Passeggero listaPasseggeriDaImbarcare : this.listaPasseggeri ) {			
-			
-			
-			if(listaPasseggeriDaImbarcare.getSesso()=='M') {
-				listaPasseggeriDaImbarcare.setHasBagagli(true);
-			} else if (listaPasseggeriDaImbarcare.getSesso()=='F'){
-				listaPasseggeriDaImbarcare.setHasFiore(true);
-			}
-			listaPasseggeriDaImbarcare.setStatoPasseggero(StatoPasseggero.Imbarcato);
-			;
-			this.imbarcati.add(listaPasseggeriDaImbarcare);
-			
-		}		
+	public Aereo checkin (Aereo a, Passeggero p ) {
 		
-		
-		
-		
+		p.setStatoPasseggero(StatoPasseggero.Imbarcato);
+		a.passeggeriDaSbarcare.add(p);		
 		a.setStato(Stato.DECOLLATO);
+		
 		return  a;
 		} 
 	

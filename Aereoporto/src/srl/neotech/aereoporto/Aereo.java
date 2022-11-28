@@ -23,7 +23,7 @@ public class Aereo {
 		int generatoreId = r.nextInt(2500);;
 		this.idAereo=generatoreId;
 		// velocita
-		int velocita = r.nextInt(1,11);
+		int velocita = r.nextInt(8,11);
 		this.velocita=velocita;
 		// compagnia
 		int sceltaCompagnia = r.nextInt(4);		
@@ -37,10 +37,16 @@ public class Aereo {
 		// orario
 		int ora = r.nextInt(10,20);
 		this.orario = ora;
-		
 		this.stato=stato;
 		
 	}
+	
+	
+	
+	
+	
+	
+	
 
 	public ModelloAereo getModelloAereo() {
 		return modelloAereo;

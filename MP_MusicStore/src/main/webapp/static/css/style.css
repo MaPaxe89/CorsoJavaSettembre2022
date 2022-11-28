@@ -1,0 +1,121 @@
+h1{
+	color:#1DB954;
+	margin-bottom:2px;
+	font-weight:600;
+	font-size:25px;
+}
+
+h2{
+	color:white;
+	margin-bottom:2px;
+	font-weight:600;
+	font-size:60px;
+}
+
+.container{
+	width:50%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+body{
+	background-color:#0A0A0A;
+}
+
+p{
+	font-size:15px;
+	color:white;	
+}
+
+span{
+	color:white;
+	font-size: 15px;
+}
+th{
+	font-weight: 300;
+	letter-spacing: 2px;
+	border-bottom:1px solid #333333;
+	text-transform:uppercase;
+	font-size: 10px;
+	text-align: left;	
+}
+td{
+	font-size:15px;
+}
+
+
+
+th, td { 
+  
+  color:#D6D6D6;
+  padding:10px;
+
+}
+span{
+	display: block;
+	
+}
+
+.prezzo{
+	font-size:20px;
+}
+
+table{
+	margin-left:auto;
+	margin-right:auto;
+	border-spacing: 0px;
+}
+#cover img{
+	width:50px;
+	height:50px;
+	border-radius:10%;
+}
+
+.riga{
+	display:flex;
+	justify-content: space-around;
+	margin-top: 36px;
+}
+
+.immagine img{
+	width:400px;
+	height:400px;
+	border-radius:5%;
+	
+}
+
+.descrizione{
+	text-align: left;
+	
+}
+
+button{
+	background-color:#1DB954;
+	color: white;
+	width:177px;
+	border: none;
+	font-size: 13px;
+	border-radius: 10px;
+	height:34px;
+	font-weight:600;
+	margin-top:11px;
+	
+}
+
+
+
+.lista ul li{
+	color:white;
+}
+
+.lista{
+	margin-top: 15px;
+	border-top: 1px solid #333333;
+}
+
+tr:hover{
+	background-color:#141414;
+}
+*{
+	font-family: 'Poppins', sans-serif;
+}

@@ -40,7 +40,26 @@ public class Startup {
 		
 		for(Aereo listaAereiPartenza : a.listaAereiPartenza) {
 			System.out.println(listaAereiPartenza);
-		}		
+		}	
+		
+		for(int q=0; q<500; q++) {
+			Passeggero p = new Passeggero(StatoPasseggero.CheckinDaFare);
+			a.listaPasseggeri.add(p);
+		}
+		
+		
+		
+		
+		//checkin
+		
+		for(Aereo ll : a.listaAereiPartenza) {
+			
+			a.checkin(ll, a.listaPasseggeri.get(0));
+			System.out.println(ll);
+		}
+		
+		
+		
 		
 		
 		// decollo 
@@ -58,9 +77,7 @@ public class Startup {
 				
 			}
 			
-		}	
-		
-				
+		}			
 		
 		//aerei in avvicinamento
 		for(int k = 0; k<5;k++) {
@@ -84,6 +101,7 @@ public class Startup {
 		}
 		
 		System.out.println("LISTA AEREI ARRIVO");
+		
 		
 				// aggiungiamo passeggeri a ogni aereo in arrivo
 		for (Aereo aereiArrivo: a.listaAereiArrivo ) {
@@ -121,12 +139,13 @@ public class Startup {
 		System.out.println("SBARCO DEI PASSEGGERI IN ARRIVO");
 		for (Aereo checkout: a.getListaAereiArrivo()) {
 			for(int i = 0; i<checkout.getModelloAereo().getCapienzaNumeroPasseggeri();i++) {
-				a.checkOut(checkout, checkout.getPasseggeriDaSbarcare().get(i));				
+				a.checkOut(checkout, checkout.getPasseggeriDaSbarcare().get(i));	
+				System.out.println(a.checkOut(checkout, checkout.getPasseggeriDaSbarcare().get(i)));
 			}		
 			
 		}		
 		
-		System.out.println("---------------");
+		
 		
 		
 		
